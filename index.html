@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a09" />
+    <meta name="description" content="IRON PEAK FITNESS — private training club in Mumbai. Memberships, programs, trainers and a premium fitness store." />
+    <meta property="og:site_name" content="IRON PEAK FITNESS" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="IRON PEAK FITNESS" />
+    <meta property="og:description" content="Train with intention. Live at your peak." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="IRON PEAK FITNESS" />
+    <meta name="twitter:description" content="Train with intention. Live at your peak." />
+    <title>IRON PEAK FITNESS — Gym &amp; Fitness Store</title>
+    <script>
+      try {
+        var stored = localStorage.getItem('ironpeak-theme');
+        var theme = stored === 'light' || stored === 'dark' ? stored : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', theme === 'light' ? '#f5f1ea' : '#0a0a09');
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

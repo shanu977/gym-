@@ -1,0 +1,2 @@
+type BillingCycle = 'monthly' | 'yearly'
+export function MembershipToggle({ value, onChange }: { value: BillingCycle; onChange: (value: BillingCycle) => void }) { return <div className="billing-toggle" role="group" aria-label="Billing cycle"><button className={value === 'monthly' ? 'is-active' : ''} type="button" onClick={() => onChange('monthly')}>Monthly</button><button className={value === 'yearly' ? 'is-active' : ''} type="button" onClick={() => onChange('yearly')}>Yearly <span>Save more</span></button></div> }

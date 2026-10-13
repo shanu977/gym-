@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="IRON PEAK FITNESS">
+  <rect width="64" height="64" rx="14" fill="#0a0a09" />
+  <g transform="translate(5.76 5.76) scale(0.82)" fill="#cbb58a">
+    <rect x="4" y="18" width="10" height="28" rx="4" />
+    <rect x="50" y="18" width="10" height="28" rx="4" />
+    <path d="M14 38H24L32 22L40 38H50" fill="none" stroke="#cbb58a" stroke-width="7" stroke-linejoin="round" />
+  </g>
+</svg>

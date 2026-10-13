@@ -1,0 +1,5 @@
+import { LockKeyhole } from 'lucide-react'
+import type { Membership } from '../types'
+import { formatINR } from '../data/membershipData'
+
+export function PaymentSummary({ plan, cycle }: { plan: Membership; cycle: 'monthly' | 'yearly' }) { const base = cycle === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice; return <aside className="payment-summary"><span className="eyebrow">Payment preparation</span><h2 className="display">Almost<br /><em>there.</em></h2><div className="summary-line"><span>{plan.name} membership</span><strong>{formatINR(base)}</strong></div><div className="summary-line"><span>Billing cycle</span><strong>{cycle === 'monthly' ? 'Monthly' : 'Yearly'}</strong></div><div className="summary-line"><span>Taxes</span><strong>Calculated at checkout</strong></div><div className="summary-total"><span>Demo total</span><strong>{formatINR(base)}</strong></div><div className="demo-payment"><LockKeyhole size={15} /><span>Payment method selection will be available when secure checkout is connected.</span></div></aside> }

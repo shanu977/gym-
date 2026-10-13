@@ -1,0 +1,8 @@
+import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import type { CartLine } from '../contexts/CartContext'
+import type { Product } from '../types'
+import { calculateCartTotals } from '../services/cartCalculations'
+
+const money = (value: number) => `₹${value.toLocaleString('en-IN')}`
+export function CartSummary({ items, products, hasUnavailable, onClear }: { items: CartLine[]; products: Product[]; hasUnavailable: boolean; onClear: () => void }) { const { subtotal, savings, shipping, tax, total } = calculateCartTotals(items, products); return <aside className="cart-summary"><div className="cart-summary-heading"><span className="eyebrow">Your summary</span><h2 className="display">Ready when you are.</h2></div><div className="cart-summary-lines"><div><span>Subtotal</span><strong>{money(subtotal)}</strong></div><div><span>Demo savings</span><strong className="summary-saving">-{money(savings)}</strong></div><div><span>Estimated shipping <small>Demo logic</small></span><strong>{shipping ? money(shipping) : 'Free'}</strong></div><div><span>Estimated tax <small>Demo estimate</small></span><strong>{money(tax)}</strong></div><div className="cart-total"><span>Total</span><strong>{money(total)}</strong></div></div><p className="shipping-note">Free demo shipping above ₹1,999. Tax and shipping are estimates only.</p><Link className={`button-primary cart-checkout-button ${hasUnavailable ? 'is-disabled' : ''}`} to={hasUnavailable ? '/cart' : '/checkout'} onClick={(event) => { if (hasUnavailable) event.preventDefault() }}>{hasUnavailable ? 'Resolve stock issues' : 'Proceed to Checkout'} <ArrowRight size={16} /></Link><button className="clear-cart-button" type="button" onClick={onClear}>Clear Cart</button></aside> }

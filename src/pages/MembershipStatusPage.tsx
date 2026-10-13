@@ -1,0 +1,8 @@
+import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { MembershipStatus } from '../components/MembershipStatus'
+import { PageWrap } from '../components/PageShell'
+import { useMembership } from '../contexts/useMembership'
+import { memberships } from '../data/membershipData'
+
+export function MembershipStatusPage() { const { currentMembership } = useMembership(); const plan = currentMembership ? memberships.find((item) => item.id === currentMembership.planId) : null; if (!currentMembership || !plan) return <PageWrap><div className="membership-empty-state"><span className="eyebrow">Member space</span><h1 className="display">You're not a<br /><em>member yet.</em></h1><p>Choose a membership plan that fits your training goals.</p><Link className="button-primary" to="/memberships">Explore memberships <ArrowRight size={15} /></Link></div></PageWrap>; return <PageWrap><div className="status-heading"><span className="eyebrow">Member space / Demo account</span><h1 className="display">Your membership<br /><em>in motion.</em></h1><p className="body-copy">A future home for your access, renewals and training rhythm.</p></div><MembershipStatus plan={plan} membership={currentMembership} /><div className="status-benefits"><div><span className="eyebrow">Your access</span><h2 className="display">Everything<br /><em>included.</em></h2></div><div className="status-benefit-list">{plan.benefits.map((benefit) => <p key={benefit}><span>↳</span>{benefit}</p>)}</div></div><div className="status-actions"><Link className="button-ghost" to={`/memberships/${plan.id}`}>View plan <ArrowRight size={15} /></Link><Link className="button-primary" to="/account/membership">Manage membership <ArrowRight size={15} /></Link></div></PageWrap> }
